@@ -62,5 +62,4 @@ class NumbFragment : Fragment() {
             layout?.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.color_red))
         }
     }
-
 }
