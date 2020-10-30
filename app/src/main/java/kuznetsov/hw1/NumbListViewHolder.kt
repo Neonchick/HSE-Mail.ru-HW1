@@ -8,13 +8,11 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
 
 class NumbListViewHolder(itemView: View, private val context: Context, val listener: IListener) :
-        RecyclerView.ViewHolder(itemView)
-{
+    RecyclerView.ViewHolder(itemView) {
     private val numberTV: TextView = itemView.findViewById(R.id.number_tv)
     private val layout: ConstraintLayout = itemView.findViewById(R.id.element_layout)
 
-    init
-    {
+    init {
         itemView.setOnClickListener {
             listener.onNumbClicked(adapterPosition)
         }
@@ -27,19 +25,15 @@ class NumbListViewHolder(itemView: View, private val context: Context, val liste
         fun onNumbClicked(position: Int)
     }
 
-    fun bind(item: Int)
-    {
+    fun bind(item: Int) {
         // Ставим число
         numberTV.text = item.toString()
 
         // Ставим цвет, в зависимости от четности
-        if (item % 2 == 0)
-        {
+        if (item % 2 == 0) {
             numberTV.setTextColor(getColor(context, R.color.color_red))
             layout.setBackgroundColor(getColor(context, R.color.color_blue))
-        }
-        else
-        {
+        } else {
             numberTV.setTextColor(getColor(context, R.color.color_blue))
             layout.setBackgroundColor(getColor(context, R.color.color_red))
         }

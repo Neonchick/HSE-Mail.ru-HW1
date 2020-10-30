@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_fragment.*
 import kuznetsov.hw1.R.bool.is_land
 
-class NumbListFragment : Fragment()
-{
+class NumbListFragment : Fragment() {
     // Подписчик на события
-    interface IListener
-    {
+    interface IListener {
         fun onAddClicked()
         fun onNumbClicked(position: Int)
     }
@@ -25,23 +23,21 @@ class NumbListFragment : Fragment()
     private var listener: IListener? = null
     private var recycler: RecyclerView? = null
 
-    override fun onAttach(context: Context)
-    {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
 
         listener = requireActivity() as? IListener
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?): View?
-    {
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.list_fragment, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
-    {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val size = (activity!! as MainActivity).listSize
@@ -59,15 +55,13 @@ class NumbListFragment : Fragment()
         }
     }
 
-    override fun onDestroyView()
-    {
+    override fun onDestroyView() {
         super.onDestroyView()
 
         recycler = null
     }
 
-    override fun onDetach()
-    {
+    override fun onDetach() {
         super.onDetach()
 
         listener = null
@@ -75,10 +69,8 @@ class NumbListFragment : Fragment()
 
     // Одна из возможных реализаций отслеживания клика по элементу
     // обработчик клика по элементу
-    inner class NumbClickHandler : NumbListViewHolder.IListener
-    {
-        override fun onNumbClicked(position: Int)
-        {
+    inner class NumbClickHandler : NumbListViewHolder.IListener {
+        override fun onNumbClicked(position: Int) {
             listener?.onNumbClicked(position)
         }
     }
