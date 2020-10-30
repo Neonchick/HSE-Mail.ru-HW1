@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name = "min_listElement_width">48dp</dimen>
+    <dimen name = "min_listElement_heigth">48dp</dimen>
+    <dimen name = "standart_margin">20dp</dimen>
+    <dimen name = "standart_pading">20dp</dimen>
+    <dimen name = "mini_pading">5dp</dimen>
+    <dimen name = "numb_font_size">25sp</dimen>
+    <dimen name = "numb_font_big_size">200sp</dimen>
+    <dimen name = "add_font_size">14sp</dimen>
+</resources>
