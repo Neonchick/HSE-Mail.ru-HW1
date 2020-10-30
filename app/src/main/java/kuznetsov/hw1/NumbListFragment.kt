@@ -12,6 +12,11 @@ import kotlinx.android.synthetic.main.list_fragment.*
 import kuznetsov.hw1.R.bool.is_land
 
 class NumbListFragment : Fragment() {
+    companion object {
+        const val PORT_COLUMN_COUNT = 3
+        const val LAND_COLUMN_COUNT = 4
+    }
+
     // Подписчик на события
     interface IListener {
         fun onAddClicked()
@@ -43,7 +48,10 @@ class NumbListFragment : Fragment() {
         recycler = view.findViewById(R.id.recycler)
         recycler?.apply {
             adapter = NumbListAdapter(MutableList(size) { it + 1 }, NumbClickHandler())
-            layoutManager = GridLayoutManager(context, if (resources.getBoolean(is_land)) 4 else 3)
+            layoutManager = GridLayoutManager(
+                context,
+                if (resources.getBoolean(is_land)) LAND_COLUMN_COUNT else PORT_COLUMN_COUNT
+            )
         }
 
         add_button.setOnClickListener {
